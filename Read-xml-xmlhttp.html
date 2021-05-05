@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read xml by xmlhttprequest</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Read xml file </h1><br>
+    <p>Read xml file and show it on browser using xmlhttprequest</p>
+    <hr>
+    <input type="button" id="btn-display" onclick=" axios('GET','file.xml')" value="display" name="Display"><br>
+    <table id="demo"></table><br>
+    <ul id="demo-ul"></ul>
+    <script>
+        function axios(method, url, body = null) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open(method, url, true);
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    display(this);
+                }
+                else {
+                    console.log(xhttp.response);
+                }
+            };
+            xhttp.send();
+
+
+        }
+        function display(xml) {
+
+            var xmlDoc = xml.responseXML;
+
+            var table = "<tr><th>Artist</th><th>Title</th></tr>";
+            var x = xmlDoc.getElementsByTagName("CD");
+            for (var i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+            let ul = document.getElementById("demo-ul");
+          
+            for(var j=0;j<x.length;j++)
+            {
+                var li = document.createElement("li");
+            var a =document.createElement("a")
+                a.innerHTML = x[j].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+           
+           
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>hi....</h1>
+<script>
+let nameArray=['Nayana','Rahul','Aayush'];
+
+//create- insert 'Family' in array at the end
+const newArray= nameArray.splice(nameArray.length,0,'Family');
+document.write(nameArray+"<br>");
+document.write(newArray);//splice method return empty array when we r not delete any element
+
+//update array 'ayush' to 'myaayush' using splice
+const updateArray = nameArray.splice(2,1,'MyAayush');
+document.write(nameArray+"<br>");
+document.write(updateArray+"<br>");
+
+//Delete 'family' using splice
+const deleteArray = nameArray.splice(nameArray.length-1,1);
+let le = nameArray.length;
+document.write(le);
+document.write(nameArray+"<br>");
+document.write(deleteArray+"<br>");
+</script>
+    </body>
+</html>
+

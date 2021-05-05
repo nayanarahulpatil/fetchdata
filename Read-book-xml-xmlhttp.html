@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get book.xml and show it on html</h1><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sed consectetur vitae repellat et molestias autem aliquam debitis, quo provident necessitatibus assumenda corporis harum.</p><br>
+    <button id="btn-display" onclick="axios('GET','book.xml')">Display HTML</button><br>
+    <table id="demo-table"></table><br>
+    
+    <div id="demo-div"></div>
+    <script>
+        function axios(method,url,Data=null)
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open(method,url,true);
+            //(for post method)
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            //(above line for post method we use)
+            xhttp.onreadystatechange=function(){
+                if(this.status== 200 && this.readyState==4)
+                {
+                    myfunction(this);
+
+                }
+                else{
+                    console.log(xhttp.response);
+                }
+            };
+            xhttp.send();
+            //(for post method)var data = {name:'yogesh',salary: 35000,email: 'yogesh@makitweb.com'};
+//(for post method)xhttp.send(JSON.stringify(data));
+           
+        }
+        function myfunction(xml){
+            var xmldoc = xml.responseXML;
+            var table="<tr><th>author</th><th>title</th><th>price</th></tr>"
+            var x = xmldoc.getElementsByTagName("book");
+            for(var i=0; i < x.length; i++)
+            {
+                table += "<tr><td>"+ x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +"</td><td>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +"</td><td>" + x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue +"</td></tr>"
+            }
+            document.getElementById("demo-table").innerHTML = table;
+
+            var div = document.getElementById("demo-div");
+            var ul = document.createElement("ul");
+            var h2 = document.createElement("h2");
+            var t = document.createTextNode("hello here we go...");
+            h2.appendChild(t);
+            div.appendChild(h2);
+            for( var j= 0 ; j<x.length ; j++)
+            {
+                var li = document.createElement("li");
+                li.innerHTML=x[j].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                ul.appendChild(li);
+                
+                div.appendChild(ul);
+            }
+         }
+    </script>
+</body>
+</html>

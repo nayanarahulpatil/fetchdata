@@ -1,0 +1,135 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>flex css</title>
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .main-div {
+            width: 100%;
+            height: 100vh;
+            background-image: url('../image/yellow_pattern.png');
+            background-size: 100% 100%;
+            position: relative;
+        }
+
+        .center-div {
+            width: 280px;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: -1px 15px 40px -10px black;
+        }
+
+        .img-div {
+            width: 280px;
+            height: 250px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #67624c, #767c6e);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        figure img {
+            width: 450px;
+            height: 330px;
+
+
+        }
+
+        .detail-div h3 {
+            margin-top: 40px;
+            text-transform: uppercase;
+            color: #ec9b3b;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .detail-div h1 {
+            text-transform: uppercase;
+            word-spacing: 2px;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .detail-div p {
+            color: #767c6e;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .lower-div {
+            margin-top: 10px;
+            background-color: #ec9b3b;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-right: 1px white;
+            color: white;
+        }
+
+        .lower-in {
+            border-right: 1px solid white;
+
+            flex-grow: 1;
+        }
+
+        .lower-none {
+            border-right: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main-div">
+        <div class="center-div">
+            <div class="card-div">
+                <div class="img-div">
+                    <figure>
+                        <img src="../Image/unnamed.png">
+                    </figure>
+                </div>
+                <div class="detail-div">
+                    <h3>The level</h3>
+                    <h1>the Barbaraien</h1>
+                    <p>The Barbarian is a single-target melee troop. He is the first troop unlocked in the Barracks. He
+                        appears as a male kilt-clad warrior with an angry, battle-ready expression have no preferred
+                        target when attacking; they will simply attack the closest building</p>
+                </div>
+                <div class="lower-div">
+                    <div class="lower-in">
+                        <p class="lower-no">10</p>
+                        <p class="lower-text">Speed</p>
+                    </div>
+                    <div class="lower-in">
+                        <p class="lower-no">14<sup>s</sup></p>
+                        <p class="lower-text">Time</p>
+                    </div>
+                    <div class="lower-in lower-none">
+                        <p class="lower-no">0.4</p>
+                        <p class="lower-text">Range</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

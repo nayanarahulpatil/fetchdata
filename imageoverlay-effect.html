@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("../Image/yellow_pattern.png");
+
+        }
+
+        .center-div {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        figure {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img {
+            height: 300px;
+        }
+
+        figcaption {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            transition: all 1 linear;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+
+        }
+
+        figure:hover img {
+            transform: scale(1.3);
+            transition: all .5s linear;
+        }
+
+        figure:hover figcaption {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        figcaption p {
+            padding-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center-div">
+
+        <figure>
+            <img src="../Image/sea2.png">
+            <figcaption>We are awesome <p>God bless us</p>
+            </figcaption>
+
+        </figure>
+        <figure>
+            <img src="../Image/sea2.png">
+            <figcaption>We are awesome <p>God bless us</p>
+            </figcaption>
+
+        </figure>
+        <figure>
+            <img src="../Image/sea2.png">
+            <figcaption>We are awesome <p>God bless us</p>
+            </figcaption>
+
+        </figure>
+
+    </div>
+</body>
+
+</html>
